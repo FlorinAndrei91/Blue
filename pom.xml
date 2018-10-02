@@ -6,7 +6,7 @@
     <groupId>com.product</groupId>
     <artifactId>blue</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>jar</packaging>
+    <packaging>pom</packaging>
 
     <properties>
         <!--Dependencies versions-->
@@ -23,8 +23,9 @@
         </dependencies>
     </dependencyManagement>
 
-    <build>
-    </build>
+    <modules>
+    <module>actions</module>
+    </modules>
 
 
 </project>
