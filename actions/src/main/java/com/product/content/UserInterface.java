@@ -8,14 +8,32 @@ import javax.swing.*;
 //just a test class
 public class UserInterface {
 
+    //main window(frame)
     protected void createWindow() {
-
         //Create and set up the window
-        final JFrame frame = new JFrame("simple GUI");
+        final JFrame frame = new JFrame("Test GUI");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        JLabel textLabel = new JLabel("Im cool", SwingConstants.CENTER);
+        JLabel textLabel = new JLabel("Good day to you :)", SwingConstants.CENTER);
 
         JButton b1 = new JButton("Test Button");
+        secondaryFrame(b1, frame);
+
+        JButton b2 = new JButton("Calculator");
+        calculator(b2, frame);
+
+        textLabel.setPreferredSize(new Dimension(300, 100));
+        frame.getContentPane().add(textLabel, BorderLayout.CENTER);
+        frame.getContentPane().add(b1, BorderLayout.NORTH);
+        frame.getContentPane().add(b2, BorderLayout.SOUTH);
+        //Display the window
+        frame.setLocationRelativeTo(null);
+        frame.pack();
+        frame.setVisible(true);
+    }
+
+    //secondary frame - when "Test Button" button is pressed
+    private void secondaryFrame(JButton b1, final JFrame frame) {
+
         b1.addActionListener(new ActionListener()
         {
             public void actionPerformed(ActionEvent e)
@@ -32,13 +50,20 @@ public class UserInterface {
             }
         });
 
-        textLabel.setPreferredSize(new Dimension(300, 100));
-        frame.getContentPane().add(textLabel, BorderLayout.CENTER);
-        frame.getContentPane().add(b1, BorderLayout.NORTH);
-        //Display the window
-        frame.setLocationRelativeTo(null);
-        frame.pack();
-        frame.setVisible(true);
+    }
+
+    //secondary frame - when "Calculator" button is pressed
+    private void calculator(JButton button, final JFrame frame) {
+
+        button.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                JFrame calculator = new Calculator("Calculator");
+                calculator.setPreferredSize(new Dimension(350, 150));
+                calculator.setLocationRelativeTo(frame);
+                calculator.pack();
+                calculator.setVisible(true);
+            }
+        });
     }
 
 
