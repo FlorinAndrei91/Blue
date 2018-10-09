@@ -12,7 +12,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 
-public class Weather extends JFrame {
+class Weather extends JFrame {
 
     private static JButton getWeatherButton = new JButton("Get weather");
     private static JTextArea locationInput = new JTextArea(1,5);

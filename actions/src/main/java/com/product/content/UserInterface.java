@@ -10,7 +10,7 @@ import javax.swing.*;
 public class UserInterface {
 
     //main window(frame)
-    protected void createWindow() {
+    void createWindow() {
         //Create and set up the window
         final JFrame frame = new JFrame("Test GUI");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
