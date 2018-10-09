@@ -1,5 +1,6 @@
 package com.product.content;
 
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -14,6 +15,8 @@ public class UserInterface {
         final JFrame frame = new JFrame("Test GUI");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         JLabel textLabel = new JLabel("Good day to you :)", SwingConstants.CENTER);
+        JPanel buttonPanel = new JPanel();
+        buttonPanel.setLayout(new FlowLayout());
 
         JButton b1 = new JButton("Test Button");
         secondaryFrame(b1, frame);
@@ -21,10 +24,16 @@ public class UserInterface {
         JButton b2 = new JButton("Calculator");
         calculator(b2, frame);
 
+        JButton b3 = new JButton("Get Weather");
+        getWeather(b3, frame);
+
+
         textLabel.setPreferredSize(new Dimension(300, 100));
         frame.getContentPane().add(textLabel, BorderLayout.CENTER);
-        frame.getContentPane().add(b1, BorderLayout.NORTH);
-        frame.getContentPane().add(b2, BorderLayout.SOUTH);
+        buttonPanel.add(b1);
+        buttonPanel.add(b2);
+        buttonPanel.add(b3);
+        frame.getContentPane().add(buttonPanel, BorderLayout.NORTH);
         //Display the window
         frame.setLocationRelativeTo(null);
         frame.pack();
@@ -62,6 +71,19 @@ public class UserInterface {
                 calculator.setLocationRelativeTo(frame);
                 calculator.pack();
                 calculator.setVisible(true);
+            }
+        });
+    }
+
+    private void getWeather(JButton button, final JFrame frame) {
+
+        button.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                JFrame weather = new Weather("Get Weather");
+                weather.setPreferredSize(new Dimension(350, 150));
+                weather.setLocationRelativeTo(frame);
+                weather.pack();
+                weather.setVisible(true);
             }
         });
     }
