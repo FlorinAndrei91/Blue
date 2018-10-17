@@ -23,7 +23,7 @@ class Calculator extends JFrame {
     private double inputTwoInt;
 
     //constructor
-    Calculator( String title) {
+    Calculator (String title) {
 
         //set title
         super(title);
